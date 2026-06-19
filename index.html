@@ -1,303 +1,154 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chính sách quyền riêng tư | EventPro</title>
-  <meta name="description" content="Chính sách quyền riêng tư cho ứng dụng quản lý sự kiện EventPro trên CH Play." />
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #0f172a;
-      --surface: rgba(15, 23, 42, 0.95);
-      --surface-alt: rgba(30, 41, 59, 0.95);
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --accent: #60a5fa;
-      --accent-strong: #38bdf8;
-      --border: rgba(148, 163, 184, 0.18);
-      --radius: 24px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 28%),
-                  radial-gradient(circle at left, rgba(96, 165, 250, 0.14), transparent 20%),
-                  linear-gradient(180deg, #020617 0%, #111827 100%);
-      color: var(--text);
-    }
-
-    body {
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-    }
-
-    .hero {
-      display: grid;
-      gap: 32px;
-      padding: 40px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(15,23,42,0.82));
-      backdrop-filter: blur(18px);
-      box-shadow: 0 32px 80px rgba(15, 23, 42, 0.32);
-    }
-
-    .hero-top {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .brand-circle {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #38bdf8, #60a5fa);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 14px 30px rgba(56, 189, 248, 0.16);
-      color: #0f172a;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .brand-text h1 {
-      margin: 0;
-      font-size: clamp(2rem, 3vw, 3rem);
-      letter-spacing: -0.04em;
-    }
-
-    .brand-text p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      max-width: 680px;
-      font-size: 1rem;
-    }
-
-    .hero-callout {
-      text-align: right;
-      min-width: 220px;
-      border: 1px solid rgba(96, 165, 250, 0.18);
-      border-radius: 20px;
-      padding: 20px 22px;
-      background: rgba(30, 41, 59, 0.75);
-    }
-
-    .hero-callout span {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      margin-bottom: 10px;
-    }
-
-    .hero-callout strong {
-      display: block;
-      font-size: 1.3rem;
-      color: #f8fafc;
-      margin-bottom: 6px;
-    }
-
-    .hero-callout p {
-      margin: 0;
-      color: var(--text);
-      font-size: 0.96rem;
-    }
-
-    .content {
-      margin-top: 40px;
-      display: grid;
-      gap: 28px;
-    }
-
-    .card {
-      padding: 32px;
-      border-radius: var(--radius);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: #f8fafc;
-      font-size: 1.5rem;
-    }
-
-    .card p,
-    .card li {
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .card ul {
-      margin: 16px 0 0;
-      padding-left: 20px;
-    }
-
-    .card ul li {
-      margin-bottom: 12px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .section-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(96, 165, 250, 0.12);
-      color: #60a5fa;
-      font-size: 1.25rem;
-    }
-
-    .label-pill {
-      display: inline-flex;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(96, 165, 250, 0.15);
-      color: #7dd3fc;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .footer {
-      margin-top: 40px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 720px) {
-      .hero {
-        padding: 28px;
-      }
-
-      .hero-top {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-callout {
-        text-align: left;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chính sách quyền riêng tư</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+    line-height: 1.7;
+    color: #222;
+    background: #fafafa;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+  .updated {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 36px;
+    border-left: 4px solid #1a73e8;
+    padding-left: 10px;
+  }
+  p, li { font-size: 15.5px; }
+  ul { padding-left: 22px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14.5px;
+  }
+  th, td {
+    border: 1px solid #e0e0e0;
+    padding: 8px 10px;
+    text-align: left;
+  }
+  th { background: #f1f3f4; }
+  a { color: #1a73e8; }
+  .contact {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 16px;
+  }
+  footer {
+    margin-top: 60px;
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
-  <div class="page">
-    <section class="hero" aria-label="Giới thiệu chính sách quyền riêng tư">
-      <div class="hero-top">
-        <div class="brand">
-          <div class="brand-circle">E</div>
-          <div class="brand-text">
-            <h1>Chính sách quyền riêng tư</h1>
-            <p>EventPro - nền tảng quản lý sự kiện chuyên nghiệp cho doanh nghiệp, cộng đồng và hoạt động offline/online.</p>
-          </div>
-        </div>
-        <div class="hero-callout">
-          <span>Phiên bản ứng dụng</span>
-          <strong>EventPro Mobile</strong>
-          <p>Đảm bảo dữ liệu người dùng được bảo mật, minh bạch và chỉ sử dụng cho trải nghiệm sự kiện.</p>
-        </div>
-      </div>
-      <div class="label-pill">Dành cho CH Play</div>
-    </section>
 
-    <section class="content">
-      <article class="card">
-        <div class="section-header">
-          <div class="section-icon">✓</div>
-          <div>
-            <h2>Cam kết bảo mật</h2>
-            <p>Chúng tôi tôn trọng quyền riêng tư của bạn và thiết kế EventPro để bảo vệ dữ liệu cá nhân một cách an toàn.</p>
-          </div>
-        </div>
-        <p>Chính sách này mô tả cách chúng tôi thu thập, sử dụng, chia sẻ và lưu trữ thông tin khi bạn sử dụng ứng dụng EventPro trên CH Play.</p>
-      </article>
+  <h1>Chính sách quyền riêng tư</h1>
+  <p class="updated">Cập nhật lần cuối: 19/06/2026</p>
 
-      <article class="card">
-        <h2>1. Thông tin chúng tôi thu thập</h2>
-        <ul>
-          <li><strong>Thông tin cá nhân:</strong> tên, email, số điện thoại, tổ chức sự kiện, vai trò người dùng.</li>
-          <li><strong>Dữ liệu sự kiện:</strong> ngày giờ, địa điểm, danh sách khách mời và lịch trình sự kiện.</li>
-          <li><strong>Dữ liệu sử dụng ứng dụng:</strong> hành vi truy cập, thiết bị, cấu hình và thông tin lỗi để cải thiện sản phẩm.</li>
-        </ul>
-      </article>
+  <p>
+    Ứng dụng <strong>[Tên ứng dụng]</strong> ("chúng tôi", "ứng dụng") do
+    <strong>Thuong Hieu Viet Co., Ltd (THV)</strong> phát triển và vận hành.
+    Chính sách này giải thích cách chúng tôi thu thập, sử dụng, lưu trữ và
+    bảo vệ thông tin của bạn khi sử dụng ứng dụng.
+  </p>
 
-      <article class="card">
-        <h2>2. Mục đích sử dụng dữ liệu</h2>
-        <ul>
-          <li>Gửi thông báo sự kiện, nhắc lịch và cập nhật quan trọng cho người dùng.</li>
-          <li>Quản lý và tối ưu hệ thống, cải thiện hiệu suất và trải nghiệm app.</li>
-          <li>Hỗ trợ kỹ thuật, giải quyết sự cố và cá nhân hóa nội dung.</li>
-        </ul>
-      </article>
+  <h2>1. Thông tin chúng tôi thu thập</h2>
+  <table>
+    <tr><th>Loại dữ liệu</th><th>Mục đích sử dụng</th></tr>
+    <tr><td>Họ tên, email, số điện thoại</td><td>Tạo và quản lý tài khoản người dùng</td></tr>
+    <tr><td>Đăng nhập Google (Google Sign-In)</td><td>Xác thực tài khoản nhanh, an toàn</td></tr>
+    <tr><td>Vị trí / địa điểm (Google Maps)</td><td>Hiển thị, tìm kiếm và chỉ đường đến sự kiện</td></tr>
+    <tr><td>Hình ảnh (camera/thư viện ảnh)</td><td>Tải ảnh đại diện, ảnh sự kiện, quét OCR thông tin</td></tr>
+    <tr><td>Thông tin tài khoản ngân hàng / ví</td><td>Xử lý rút tiền, thanh toán, giao dịch trong ứng dụng</td></tr>
+    <tr><td>Lịch sử giao dịch (qua MoMo)</td><td>Xác nhận thanh toán, nâng cấp gói dịch vụ</td></tr>
+    <tr><td>Dữ liệu thiết bị (loại máy, hệ điều hành)</td><td>Cải thiện hiệu năng, khắc phục lỗi</td></tr>
+  </table>
 
-      <article class="card">
-        <h2>3. Chia sẻ và đối tác</h2>
-        <ul>
-          <li>Chúng tôi không bán dữ liệu cá nhân cho bên thứ ba.</li>
-          <li>Dữ liệu có thể được chia sẻ với đối tác cung cấp dịch vụ máy chủ, phân tích và thông báo, nhưng luôn theo hợp đồng bảo mật.</li>
-          <li>Nếu pháp luật yêu cầu, chúng tôi có thể tiết lộ thông tin để tuân thủ quy định, bảo vệ quyền lợi người dùng và phòng chống hành vi gian lận.</li>
-        </ul>
-      </article>
+  <h2>2. Cách chúng tôi sử dụng thông tin</h2>
+  <ul>
+    <li>Cung cấp và duy trì hoạt động của ứng dụng</li>
+    <li>Xác thực người dùng và bảo mật tài khoản</li>
+    <li>Xử lý thanh toán, rút tiền và các giao dịch tài chính trong ứng dụng</li>
+    <li>Gửi thông báo liên quan đến sự kiện, giao dịch, cập nhật hệ thống</li>
+    <li>Phân tích, cải thiện chất lượng và trải nghiệm sử dụng</li>
+  </ul>
 
-      <article class="card">
-        <h2>4. Bảo vệ dữ liệu</h2>
-        <ul>
-          <li>Dữ liệu được mã hóa khi truyền và lưu trữ trên hệ thống máy chủ an toàn.</li>
-          <li>Hạn chế quyền truy cập nội bộ chỉ cho nhân sự cần thiết.</li>
-          <li>Kiểm soát rủi ro định kỳ và cập nhật biện pháp bảo mật theo tiêu chuẩn an toàn công nghệ.</li>
-        </ul>
-      </article>
+  <h2>3. Chia sẻ thông tin với bên thứ ba</h2>
+  <p>
+    Chúng tôi không bán thông tin cá nhân của bạn. Một số dữ liệu có thể được
+    chia sẻ với các đối tác cung cấp dịch vụ cần thiết để vận hành ứng dụng:
+  </p>
+  <ul>
+    <li><strong>Google</strong> (Đăng nhập, Bản đồ, Firebase)</li>
+    <li><strong>MoMo</strong> (Xử lý thanh toán)</li>
+    <li>Đơn vị cung cấp hạ tầng máy chủ / lưu trữ dữ liệu</li>
+  </ul>
+  <p>Các đối tác này chỉ được sử dụng dữ liệu trong phạm vi cung cấp dịch vụ cho chúng tôi.</p>
 
-      <article class="card">
-        <h2>5. Quyền của người dùng</h2>
-        <ul>
-          <li>Truy cập và chỉnh sửa thông tin cá nhân của bạn trong mục cài đặt tài khoản.</li>
-          <li>Yêu cầu xóa dữ liệu hoặc ngừng nhận thông báo bất kỳ lúc nào.</li>
-          <li>Liên hệ với chúng tôi nếu bạn muốn biết thêm hoặc khiếu nại về cách dữ liệu được xử lý.</li>
-        </ul>
-      </article>
+  <h2>4. Bảo mật dữ liệu</h2>
+  <p>
+    Chúng tôi áp dụng các biện pháp kỹ thuật và quản lý phù hợp (mã hóa truyền
+    tải dữ liệu, xác thực truy cập) để bảo vệ thông tin của bạn khỏi truy cập,
+    sử dụng hoặc tiết lộ trái phép.
+  </p>
 
-      <article class="card">
-        <h2>6. Liên hệ</h2>
-        <p>Nếu bạn có thắc mắc về chính sách quyền riêng tư, vui lòng liên hệ Email: <strong>privacy@eventpro.app</strong> hoặc qua trang hỗ trợ trong ứng dụng.</p>
-      </article>
-    </section>
+  <h2>5. Quyền của bạn</h2>
+  <ul>
+    <li>Yêu cầu xem, chỉnh sửa thông tin cá nhân đã cung cấp</li>
+    <li>Yêu cầu xóa tài khoản và dữ liệu liên quan</li>
+    <li>Rút lại sự đồng ý cung cấp dữ liệu bất kỳ lúc nào (có thể ảnh hưởng đến khả năng sử dụng một số tính năng)</li>
+  </ul>
+  <p>Để thực hiện các quyền trên, vui lòng liên hệ với chúng tôi theo thông tin bên dưới.</p>
 
-    <footer class="footer">
-      <p>EventPro © 2026 - Nền tảng quản lý sự kiện chuyên nghiệp. Chính sách này được cập nhật lần cuối vào 19/06/2026.</p>
-    </footer>
+  <h2>6. Lưu trữ dữ liệu</h2>
+  <p>
+    Dữ liệu được lưu trữ trong thời gian tài khoản của bạn còn hoạt động, hoặc
+    theo yêu cầu pháp lý liên quan đến giao dịch tài chính. Khi bạn yêu cầu xóa
+    tài khoản, dữ liệu cá nhân sẽ được xóa hoặc ẩn danh hóa, trừ thông tin bắt
+    buộc phải lưu giữ theo quy định pháp luật (ví dụ: hồ sơ giao dịch tài chính).
+  </p>
+
+  <h2>7. Trẻ em</h2>
+  <p>
+    Ứng dụng không hướng đến đối tượng trẻ em dưới 13 tuổi và chúng tôi không
+    cố ý thu thập thông tin cá nhân từ trẻ em.
+  </p>
+
+  <h2>8. Thay đổi chính sách</h2>
+  <p>
+    Chính sách này có thể được cập nhật theo thời gian. Mọi thay đổi sẽ được
+    đăng tải tại trang này kèm ngày cập nhật mới nhất.
+  </p>
+
+  <h2>9. Liên hệ</h2>
+  <div class="contact">
+    <p><strong>Thuong Hieu Viet Co., Ltd (THV)</strong></p>
+    <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+    <p>Địa chỉ: TP. Hồ Chí Minh, Việt Nam</p>
   </div>
+
+  <footer>
+    © 2026 THV. All rights reserved.
+  </footer>
+
 </body>
 </html>
